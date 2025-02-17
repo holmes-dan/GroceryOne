@@ -9,11 +9,11 @@ const LogoBanner = () => {
   const {colors} = useTheme();
   return (
     <View style={styles.view}>
-      <Liftoff width={60} height={54} />
+      <Liftoff fill={colors.logo} height={54} width={60} />
       <Text
         level={5}
         text="Grocery One"
-        style={[styles.text, {color: colors.banner}]}
+        style={[styles.text, {color: colors.logo}]}
       />
     </View>
   );

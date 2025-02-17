@@ -15,7 +15,7 @@ const AccountBanner = ({navigation}) => {
           style={styles.image}
         />
         <View style={styles.textView}>
-          <Text level={3} style={{color: colors.primary}} text="Jess Jones" />
+          <Text level={3} style={{color: colors.primary}} text="Jess Brown" />
           <View style={styles.row}>
             <Text
               style={[styles.text, {color: colors.outline}]}

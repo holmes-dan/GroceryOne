@@ -52,7 +52,7 @@ const light = {
   nextItemSheet: '#e1e1e1',
   link: '#0056a1',
   press: '#7f7f7f',
-  banner: '#004aad',
+  logo: '#004aad',
 };
 
 const dark = {
@@ -103,7 +103,7 @@ const dark = {
   nextItemSheet: 'rgb(20,20,25)',
   link: '#0056a1',
   press: '#7f7f7f',
-  banner: '#FBFCFE',
+  logo: '#FBFCFE',
 };
 
 export const colors = {

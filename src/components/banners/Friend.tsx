@@ -13,7 +13,7 @@ const Friends = () => {
           source={require('../../assets/images/profile-picture.jpg')}
           style={styles.image}
         />
-        <Text level={2} style={{color: colors.primary}} text="Jess Jones" />
+        <Text level={2} style={{color: colors.primary}} text="Jess Brown" />
       </View>
     </View>
   );

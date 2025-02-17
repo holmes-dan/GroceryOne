@@ -1,67 +1,20 @@
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
-import {signUp} from 'aws-amplify/auth';
 
-import ConfirmationCodeInput from '../components/input/ConfirmationCode.tsx';
-import EmailInput from '../components/input/Email.tsx';
+import Email from '../components/intro/Email.tsx';
 import LoginButton from '../components/buttons/Login.tsx';
+import Logo from '../assets/images/logo.svg';
 import Text from '../components/Text.tsx';
 import {useTheme} from '../utils/theme/context.tsx';
 
 interface IntroScreenProps {
   navigation: NavigationProp<ParamListBase>;
 }
-const IntroScreen: React.FC<IntroScreenProps> = () => {
+const IntroScreen: React.FC<IntroScreenProps> = ({navigation}) => {
   const {colors} = useTheme();
-  const [confirmationCode, setConfirmationCode] = useState('');
-  const [email, setEmail] = useState('');
-  const handleSignUp = async () => {
-    try {
-      const {nextStep: signUpNextStep} = await signUp({
-        username: 'hello',
-        options: {
-          userAttributes: {
-            email: email,
-          },
-        },
-      });
-      if (signUpNextStep.signUpStep === 'DONE') {
-        console.log('SignUp Complete');
-        Alert.alert('Sign Up Complete');
-      }
-      if (signUpNextStep.signUpStep === 'CONFIRM_SIGN_UP') {
-        console.log(
-          `Code Delivery Medium: ${signUpNextStep.codeDeliveryDetails.deliveryMedium}`,
-        );
-        console.log(
-          `Code Delivery Destination: ${signUpNextStep.codeDeliveryDetails.destination}`,
-        );
-        setIsConfirming(true); // Switch to confirmation mode
-      }
-    } catch (error) {
-      console.error(error);
-      Alert.alert('Error', error.message);
-    }
-  };
-  const handleConfirmSignUp = async () => {
-    try {
-      const {nextStep: confirmSignUpNextStep} = await confirmSignUp({
-        username: 'hello',
-        confirmationCode: confirmationCode,
-      });
-
-      if (confirmSignUpNextStep.signUpStep === 'DONE') {
-        console.log('SignUp Complete');
-        Alert.alert('Sign Up Complete');
-      }
-    } catch (error) {
-      console.error(error);
-      Alert.alert('Error', error.message);
-    }
-  };
   const loginOptions = {
-    Apple: {icon: 'apple', action: () => {}},
+    Apple: {icon: 'apple', action: () => navigation.navigate('Home')},
     Google: {icon: 'google', action: () => {}},
     Facebook: {icon: 'facebook', action: () => {}},
     email: {icon: 'email', action: () => setShowEmail(prev => !prev)},
@@ -69,11 +22,11 @@ const IntroScreen: React.FC<IntroScreenProps> = () => {
   const [showEmail, setShowEmail] = useState(false);
   return (
     <SafeAreaView style={[styles.aLayer, {backgroundColor: colors.background}]}>
-      {/* <Image source={bannerImage} style={styles.introGGBanner} /> */}
       <View style={styles.bLayer}>
+        <Logo fill={colors.logo} height={72} width={80} />
         <Text
           text={'The one app you need to get groceries.'}
-          style={[styles.introHeader, {color: colors.primary}]}
+          style={[styles.header, {color: colors.primary}]}
           lines={2}
         />
         {/* <Image source={cartImage} style={styles.introCart} /> */}
@@ -87,26 +40,7 @@ const IntroScreen: React.FC<IntroScreenProps> = () => {
             <LoginButton onPress={value.action} text={key} icon={value.icon} />
           ))}
         </View>
-        {showEmail && (
-          <View style={styles.emailInputs}>
-            <EmailInput
-              input={{
-                onChangeText: setEmail,
-                onSubmitEditing: async () => {
-                  await handleSignUp();
-                },
-              }}
-            />
-            <ConfirmationCodeInput
-              input={{
-                onChangeText: setConfirmationCode,
-                onSubmitEditing: async () => {
-                  await handleConfirmSignUp();
-                },
-              }}
-            />
-          </View>
-        )}
+        {showEmail && <Email />}
       </View>
     </SafeAreaView>
   );
@@ -115,7 +49,7 @@ const IntroScreen: React.FC<IntroScreenProps> = () => {
 const styles = StyleSheet.create({
   aLayer: {flex: 1},
   bLayer: {marginHorizontal: 20},
-  emailInputs: {},
+  header: {marginTop: 20},
 });
 
 export default IntroScreen;

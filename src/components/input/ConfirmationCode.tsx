@@ -12,7 +12,7 @@ const EmailInput: React.FC<EmailInputProps> = ({input}) => {
   const {colors} = useTheme();
   return (
     <View
-      style={[styles.loginRowView, {borderBottomColor: colors.onBackground}]}>
+      style={[styles.loginRowView, {borderColor: colors.onBackground}]}>
       <TextInput
         style={[styles.loginInput, {color: colors.onBackground}]}
         placeholderTextColor={colors.outline}
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   loginInput: {marginTop: 2, marginEnd: 5, fontSize: 20, flex: 1},
   loginRowView: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
+    borderWidth: 2,
     marginBottom: 10,
     paddingBottom: 1,
     topMargin: 10,

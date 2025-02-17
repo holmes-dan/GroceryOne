@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   addRecipeRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: -13,
+    marginTop: -16,
   },
   recipesView: {
     flex: 1,

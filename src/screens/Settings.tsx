@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Button, StyleSheet, View} from 'react-native';
 import {useTheme} from '../utils/theme/context';
 
 import BottomButtons from '../components/buttons/Bottom.tsx';
@@ -8,6 +8,7 @@ import SettingsRow from '../components/SettingsRow';
 
 const SettingsScreen = ({navigation}) => {
   const {theme, setTheme, colors} = useTheme();
+  const {signOut} = useAuthenticator();
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
@@ -22,6 +23,12 @@ const SettingsScreen = ({navigation}) => {
         title="Dark Mode"
         value={theme === 'dark'}
         onValueChange={toggleTheme}
+      />
+      <Button
+        color={colors.error}
+        style={styles.signOut}
+        title="Sign Out"
+        onPress={signOut}
       />
       <BottomButtons
         leftIcon="house"
@@ -42,11 +49,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  switch: {},
-
   settingsTitle: {
     paddingTop: '20%',
   },
+  signOut: {alignSelf: 'flex-start'},
+  switch: {},
 });
 
 export default SettingsScreen;

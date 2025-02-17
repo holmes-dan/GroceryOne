@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Account from '../screens/Account.tsx';
+import Camera from '../screens/Camera.tsx';
 import Discover from '../screens/Discover.tsx';
 import Home from '../screens/Home.tsx';
 import Intro from '../screens/Intro.tsx';
@@ -14,6 +15,7 @@ LogBox.ignoreAllLogs();
 
 const privateScreens = {
   ['Account']: Account,
+  ['Camera']: Camera,
   ['Discover']: Discover,
   ['Home']: Home,
   ['Intro']: Intro,
@@ -27,7 +29,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         gestureEnabled={false}
-        initialRouteName={'Home'}
+        initialRouteName={'Intro'}
         screenOptions={{
           headerShown: false,
           animationEnabled: false,

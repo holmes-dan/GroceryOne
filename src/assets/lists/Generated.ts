@@ -1,4 +1,5 @@
 import axios from 'axios';
+import spoonacular from '../../assets/secrets.ts';
 import {ShoppingListProps} from './ListsData';
 
 export const getRecipe = async (query: string, type: string) => {
@@ -17,7 +18,7 @@ export const getRecipe = async (query: string, type: string) => {
       'https://api.spoonacular.com/recipes/complexSearch',
       {
         params: {
-          apiKey: '2abc8180a6bc414994f43f4eaa715d2d',
+          apiKey: spoonacular,
           query: query,
           type: type,
           number: 8,

@@ -1,18 +1,37 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {Button, View} from 'react-native';
+import {signIn, signUp, confirmSignUp} from 'aws-amplify/auth';
 
 import ConfirmationCodeInput from '../input/ConfirmationCode.tsx';
 import EmailInput from '../input/Email.tsx';
 
 const Email = () => {
-  const [confirmationCode, setConfirmationCode] = useState('');
+  const [confirmationCode, setConfirmationCode] = useState(0);
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isConfirming, setIsConfirming] = useState(false);
 
+  const handleSignIn = async () => {
+    try {
+      const {nextStep: signInNextStep} = await signIn({
+        username: email,
+        password: password,
+      });
+      if (signInNextStep.signInStep === 'DONE') {
+        console.log('Sign-in successful');
+      } else {
+        // Handle other steps if necessary (e.g., MFA)
+        console.log('Next step:', signInNextStep);
+      }
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
+  };
   const handleSignUp = async () => {
     try {
       const {nextStep: signUpNextStep} = await signUp({
-        username: 'hello',
+        username: email,
+        password: password,
         options: {
           userAttributes: {
             email: email,
@@ -40,7 +59,7 @@ const Email = () => {
   const handleConfirmSignUp = async () => {
     try {
       const {nextStep: confirmSignUpNextStep} = await confirmSignUp({
-        username: 'hello',
+        username: email,
         confirmationCode: confirmationCode,
       });
 
@@ -59,11 +78,18 @@ const Email = () => {
       <EmailInput
         input={{
           onChangeText: setEmail,
-          onSubmitEditing: async () => {
-            await handleSignUp();
-          },
         }}
         placeholder="Enter email"
+      />
+      <EmailInput
+        input={{
+          onChangeText: setPassword,
+          onSubmitEditing: async () => {
+            await handleSignIn();
+          },
+        }}
+        placeholder="Password"
+        secure={true}
       />
       {isConfirming && (
         <ConfirmationCodeInput

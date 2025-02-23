@@ -28,14 +28,15 @@ const Camera = ({navigation}) => {
         }}
       />
       <RNCamera
-        ref={cameraRef}
-        style={styles.preview}
-        type={RNCamera.Constants.Type.back}
+        captureAudio={false}
         flashMode={RNCamera.Constants.FlashMode.off}
         onCameraReady={() => setIsCameraReady(true)}
         onMountError={error => {
           console.error('Camera error:', error);
         }}
+        ref={cameraRef}
+        style={styles.preview}
+        type={RNCamera.Constants.Type.back}
       />
       <View style={styles.buttonContainer}>
         <Button

@@ -72,7 +72,7 @@ const dark = {
   onError: 'rgb(105, 0, 5)',
   errorContainer: 'rgb(147, 0, 10)',
   onErrorContainer: 'rgb(255, 180, 171)',
-  background: 'rgb(25, 28, 30)',
+  background: '#191c1e',
   onBackground: 'rgb(225, 226, 228)',
   surface: '#242f36',
   onSurface: 'rgb(225, 226, 228)',

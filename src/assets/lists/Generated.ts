@@ -1,5 +1,5 @@
 import axios from 'axios';
-import spoonacular from '../../assets/secrets.ts';
+import {spoonacular} from '../secrets.ts';
 import {ShoppingListProps} from './ListsData';
 
 export const getRecipe = async (query: string, type: string) => {
@@ -8,11 +8,10 @@ export const getRecipe = async (query: string, type: string) => {
     name: '-1',
     rating: -1,
     ratingsAmount: -1,
-    //source: '-1',
     recipes: [{id: '-1', name: '-1', portions: -1}],
-    //servingSize: '-1',
     cost: -1,
   };
+  console.log(spoonacular);
   try {
     const recipe = await axios.get(
       'https://api.spoonacular.com/recipes/complexSearch',

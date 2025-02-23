@@ -40,7 +40,7 @@ const IntroScreen: React.FC<IntroScreenProps> = ({navigation}) => {
             <LoginButton onPress={value.action} text={key} icon={value.icon} />
           ))}
         </View>
-        {showEmail && <Email />}
+        {showEmail && <Email navigation={navigation} />}
       </View>
     </SafeAreaView>
   );

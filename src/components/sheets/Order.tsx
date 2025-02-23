@@ -19,10 +19,6 @@ const OrderSheet = ({snapIndex, setSnapIndex}) => {
       onClose={() => setSnapIndex(-1)}
       snapPoints={['88%']}>
       <BottomSheetView style={styles.bLayer}>
-        <Text
-          children="Next Item"
-          style={[styles.nextItem, {color: colors.onBackground}]}
-        />
         <TouchableOpacity onPress={() => setSnapIndex(-1)}>
           <Text
             level={4}
@@ -36,19 +32,8 @@ const OrderSheet = ({snapIndex, setSnapIndex}) => {
 };
 
 const styles = StyleSheet.create({
-  aLayer: {
-    alignItems: 'center',
-    padding: 36,
-  },
-  nextItem: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: -35,
-  },
-  viewList: {
-    fontWeight: 'bold',
-    padding: 20,
-  },
+  aLayer: {alignItems: 'center', padding: 36},
+  viewList: {fontWeight: 'bold', padding: 20, paddingTop: 0},
 });
 
 export default OrderSheet;

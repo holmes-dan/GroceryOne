@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     width: 60,
   },
   row: {flexDirection: 'row', justifyContent: 'space-around'},
-  text: {fontSize: 13, marginTop: -15},
+  text: {fontSize: 13, marginTop: -10},
   textView: {flexDirection: 'column'},
 });
 

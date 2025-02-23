@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, StyleSheet, View} from 'react-native';
+import {useAuthenticator} from '@aws-amplify/ui-react-native';
 import {useTheme} from '../utils/theme/context';
 
 import BottomButtons from '../components/buttons/Bottom.tsx';

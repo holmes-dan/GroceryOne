@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {StyleSheet, TextInput, TextInputProps, View} from 'react-native';
 import {useTheme} from '../../utils/theme/context.tsx';
 

@@ -13,28 +13,30 @@ import Tastes from '../screens/Tastes.tsx';
 
 LogBox.ignoreAllLogs();
 
-const privateScreens = {
+const screens = {
   ['Account']: Account,
   ['Camera']: Camera,
   ['Discover']: Discover,
   ['Home']: Home,
-  ['Intro']: Intro,
   ['Settings']: Settings,
+};
+const signInScreens = {
+  ['Intro']: Intro,
   ['Tastes']: Tastes,
 };
 
-const App = () => {
+const Navigator = () => {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator
         gestureEnabled={false}
-        initialRouteName={'Intro'}
+        initialRouteName={'Home'}
         screenOptions={{
           headerShown: false,
           animationEnabled: false,
         }}>
-        {Object.entries(privateScreens).map(([name, Component]) => (
+        {Object.entries(screens).map(([name, Component]) => (
           <Stack.Screen
             component={Component}
             key={name}
@@ -47,4 +49,28 @@ const App = () => {
   );
 };
 
-export default App;
+export const SignIn = () => {
+  const Stack = createStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        gestureEnabled={false}
+        initialRouteName={'Intro'}
+        screenOptions={{
+          headerShown: false,
+          animationEnabled: false,
+        }}>
+        {Object.entries(signInScreens).map(([name, Component]) => (
+          <Stack.Screen
+            component={Component}
+            key={name}
+            name={name}
+            options={{animation: 'fade', gestureEnabled: false}}
+          />
+        ))}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default Navigator;

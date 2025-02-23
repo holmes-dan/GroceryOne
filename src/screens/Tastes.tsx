@@ -100,14 +100,14 @@ const Tastes: React.FC<TastesProps> = ({navigation}) => {
       <Button
         onPress={() => {
           handleSave();
-          navigation.navigate('SugLists');
+          navigation.navigate('Home');
         }}
         title="Save Changes"
         style={[styles.tastesSaveButton, {color: colors.background}]}
       />
       <Button
         style={[styles.tastesSkipButton, {color: colors.background}]}
-        onPress={() => navigation.navigate('SugLists')}
+        onPress={() => navigation.navigate('Home')}
         title="Skip for now"
       />
     </SafeAreaView>

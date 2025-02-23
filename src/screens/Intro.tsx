@@ -14,7 +14,7 @@ interface IntroScreenProps {
 const IntroScreen: React.FC<IntroScreenProps> = ({navigation}) => {
   const {colors} = useTheme();
   const loginOptions = {
-    Apple: {icon: 'apple', action: () => navigation.navigate('Home')},
+    Apple: {icon: 'apple', action: () => navigation.navigate('Tastes')},
     Google: {icon: 'google', action: () => {}},
     Facebook: {icon: 'facebook', action: () => {}},
     email: {icon: 'email', action: () => setShowEmail(prev => !prev)},

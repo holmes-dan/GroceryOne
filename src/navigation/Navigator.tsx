@@ -18,7 +18,9 @@ const screens = {
   ['Camera']: Camera,
   ['Discover']: Discover,
   ['Home']: Home,
+  ['Intro']: Intro,
   ['Settings']: Settings,
+  ['Tastes']: Tastes,
 };
 const signInScreens = {
   ['Intro']: Intro,
@@ -31,7 +33,7 @@ const Navigator = () => {
     <NavigationContainer>
       <Stack.Navigator
         gestureEnabled={false}
-        initialRouteName={'Home'}
+        initialRouteName={'Intro'}
         screenOptions={{
           headerShown: false,
           animationEnabled: false,

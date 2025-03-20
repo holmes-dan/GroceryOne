@@ -23,7 +23,7 @@ const Home: React.FC<BuilderProps> = ({navigation}) => {
   const recipeIcons = {
     ['search']: () => navigation.navigate('Discover'),
     ['bookmark']: () => navigation.navigate('Account'),
-    ['camera']: () => navigation.navigate('Camera'),
+    // ['camera']: () => navigation.navigate('Camera'),
     ['arrow-back']: null,
   };
   const itemIcons = {
@@ -33,7 +33,8 @@ const Home: React.FC<BuilderProps> = ({navigation}) => {
   };
   const [orderSnapIndex, orderSetSnapIndex] = useState(-1);
   const [itemSnapIndex, itemSetSnapIndex] = useState(-1);
-  const [selectedItem, setSelectedItem] = useState(0);
+  const [selectedItem, setSelectedItem] = useState(dummyRecipes.items[0]);
+  console.log(dummyRecipes.items[0].id);
   return (
     <SafeAreaView style={[styles.aLayer, {backgroundColor: colors.background}]}>
       <GestureHandlerRootView style={styles.aLayer}>
@@ -83,7 +84,7 @@ const Home: React.FC<BuilderProps> = ({navigation}) => {
           setSnapIndex={orderSetSnapIndex}
         />
         <RecipeSheet
-          item={dummyRecipes.items[selectedItem]}
+          item={selectedItem}
           snapIndex={itemSnapIndex}
           setSnapIndex={itemSetSnapIndex}
         />

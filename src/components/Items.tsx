@@ -41,14 +41,14 @@ const Items = ({icons, items, name, setSnapIndex, setSelectedItem}) => {
       )}
       <ScrollView showsVerticalScrollIndicator={false} style={styles.scroller}>
         <View style={styles.recipesView}>
-          {items.items.map((item, index) => (
+          {items.items.map(item => (
             <RecipeEditor
-              key={index}
+              key={item.id}
               name={item.name}
               initialServings={item.servings}
               onPress={() => {
+                setSelectedItem(item);
                 setSnapIndex(1);
-                setSelectedItem(prev => prev + 1);
               }}
               uri={item.uri}
               style={styles.recipeEditor}
@@ -70,9 +70,9 @@ const styles = StyleSheet.create({
     width: '47%',
   },
   icons: {
-    fontSize: 25,
+    fontSize: 30,
     marginTop: 16,
-    marginBottom: 11,
+    marginBottom: 6,
     marginHorizontal: 5,
   },
   addItemButton: {
@@ -86,8 +86,9 @@ const styles = StyleSheet.create({
   },
   addRecipeRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     marginTop: -16,
+    width: '100%',
   },
   recipesView: {
     flex: 1,

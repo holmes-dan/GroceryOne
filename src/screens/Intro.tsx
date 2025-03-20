@@ -4,7 +4,7 @@ import {NavigationProp, ParamListBase} from '@react-navigation/native';
 
 import Email from '../components/intro/Email.tsx';
 import LoginButton from '../components/buttons/Login.tsx';
-import Logo from '../assets/images/logo.svg';
+import Logo from '../assets/icons/logo.svg';
 import Text from '../components/Text.tsx';
 import {useTheme} from '../utils/theme/context.tsx';
 
@@ -25,7 +25,7 @@ const IntroScreen: React.FC<IntroScreenProps> = ({navigation}) => {
       <View style={styles.bLayer}>
         <Logo fill={colors.logo} height={72} width={80} />
         <Text
-          text={'The one app you need to get groceries.'}
+          text={'Everything you need to get groceries.'}
           style={[styles.header, {color: colors.primary}]}
           lines={2}
         />

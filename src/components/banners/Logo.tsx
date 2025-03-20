@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import Liftoff from '../../assets/images/liftoff.svg';
+import Go from '../../assets/icons/logo.svg';
 import Text from '../Text.tsx';
 import {useTheme} from '../../utils/theme/context.tsx';
 
@@ -9,10 +9,10 @@ const LogoBanner = () => {
   const {colors} = useTheme();
   return (
     <View style={styles.view}>
-      <Liftoff fill={colors.logo} height={54} width={60} />
+      <Go fill={colors.logo} height={59} width={90} />
       <Text
         level={5}
-        text="Grocery One"
+        text="GroceryOne"
         style={[styles.text, {color: colors.logo}]}
       />
     </View>
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     margin: 30,
   },
   text: {
-    fontFamily: 'Montserrat-Bold',
-    paddingLeft: 10,
+    fontFamily: 'Livvic',
+    paddingLeft: 2,
     marginTop: -4,
   },
 });

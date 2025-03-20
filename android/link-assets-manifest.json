@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/FunnelSans-Medium.ttf",
+      "sha1": "dedc1a73e18d245099b282c94845aae49d23fc0b"
+    },
+    {
+      "path": "src/assets/fonts/FunnelSans-Regular.ttf",
+      "sha1": "3267ced08bca5b42bcd49043d52778335db48541"
+    },
+    {
+      "path": "src/assets/fonts/Livvic.ttf",
+      "sha1": "3d8ba45591c90009934f39a826f5409f1c8f53e8"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Bold.ttf",
+      "sha1": "c7d907722af4fb845ab97d515bb414f29651f000"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-SemiBold.ttf",
+      "sha1": "d491c9d0af61faef59ca807737b560170f547f5b"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-Regular.ttf",
+      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-SemiBold.ttf",
+      "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
+    }
+  ]
+}
